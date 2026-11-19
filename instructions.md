@@ -1,19 +1,19 @@
 # Dynamical Systems of Social Data: Collaboration Instructions
 
-This branch, `socio-dynamical-systems`, is for one kind of analysis: country-level social and economic indicators, a dynamical system fitted to how they change from year to year, and a short article reporting it. The user names the variables or a question; the agent proposes the standard analysis below; the two work through it one step at a time. Everything in this document serves that purpose. Rules that would apply to any data analysis are kept only where this kind of work depends on them.
+This repository, `Vivid-Insights/socioeconomic-dynamical-systems`, is for one kind of analysis: country-level social and economic indicators, a dynamical system fitted to how they change from year to year, and a short article reporting it. The user names the variables or a question; the agent proposes the standard analysis below; the two work through it one step at a time. Everything in this document serves that purpose. Rules that would apply to any data analysis are kept only where this kind of work depends on them.
 
 ## Workspace
 
 | Location | Purpose |
 | --- | --- |
-| `Attachments/` | Source data and the papers the method comes from. Never modified. Literature PDFs go in `Attachments/literature/`, which is gitignored. Large or third-party files are gitignored too, with `Attachments/SOURCE.md` saying how to download them and their checksums. |
+| `Attachments/` | Source data and the papers the method comes from. Never modified. Literature PDFs go in `Attachments/literature/`, which is gitignored, except for the papers the method comes from that the user co-authored (Ranganathan et al., 2013–2015; Spaiser et al., 2014), which are committed. Large or third-party files are gitignored too, with `Attachments/SOURCE.md` saying how to download them and their checksums. |
 | `Code/` | Analysis scripts, numbered in run order, and `outputs/`. `sds_common.py` holds the locked figure style, the representative countries and the phase-portrait arrows. The environment files (`setup_env.sh`, `pyproject.toml`, `uv.lock`, `check_env.py`) and `16_export_report.py` arrive with the template. |
 | `Report.md` | The short article, built up step by step. |
 | `Appendix.md` | The running record: `Data Summary`, `Research Question`, `Analysis` (the workings), `Analysis Log` (a numbered row per step), `Code Summary`, `References`. |
 | `Setup.md` | Installing and running the workspace. |
 | `Sample Report/` | The finished reference analysis: democracy and GDP per capita, 1981–2024 (`Democracy.md`, `Democracy Appendix.md`, its own `Code/` and `Attachments/`). It reproduces exactly when its scripts are re-run. It is the model for the writing, the figures and the code of every new analysis. Never edited as part of a new analysis. |
-| `Sample Report/Analysis Steps.md` | The walkthrough of how the sample and this branch's contract were built, with the user's prompts quoted. For showing someone how the method works; not part of a new analysis. |
-| `Templates/` | Blank `Report.md` and `Appendix.md` in this branch's format, copied to the root to start a new analysis. |
+| `Sample Report/Analysis Steps.md` | The walkthrough of how the sample and this contract were built, with the user's prompts quoted. For showing someone how the method works; not part of a new analysis. |
+| `Templates/` | Blank `Report.md` and `Appendix.md` in this project's format, copied to the root to start a new analysis. |
 
 ## Working step by step
 
@@ -37,13 +37,13 @@ A message beginning **FRAMEWORK** changes this document.
 - Apply the change here at once, in a commit of its own that touches no analysis content.
 - Apply it to the analysis in progress at the same time, retrospectively where it affects work already done.
 - If it conflicts with something already here, say so rather than leaving the contract contradicting itself.
-- **Everything stays on this branch.** Nothing is promoted to `main`, and `main` is not touched. One rule (scanning for missing-value codes) went to `main` before this rule was made, and stays there. If a change looks useful for `main`, say so; carrying it across is the user's decision.
+- **Everything stays in this repository.** It began as the `socio-dynamical-systems` branch of `Vivid-Insights/human-agentic-data-analysis`, the general data-analysis template, and is now a repository of its own. Nothing goes back to the original. One rule (scanning for missing-value codes) reached the original's `main` before this rule was made, and stays there. If a change looks useful for the general template, say so; carrying it across is the user's decision.
 
 ## Starting a new analysis
 
-This branch is a template. A new analysis is done on a branch made from it, never on this branch itself.
+`main` is the template. A new analysis is done on a branch made from it, never on `main` itself.
 
-1. **Branch.** `git checkout socio-dynamical-systems && git checkout -b <analysis-name>`.
+1. **Branch.** `git checkout main && git checkout -b <analysis-name>`.
 2. **Start the documents from the templates.** Copy `Templates/Report.md` and `Templates/Appendix.md` to the root as `Report.md` and `Appendix.md`, replacing whatever is there. The `Disclaimer` in the template stays as written.
 3. **Start the code from the sample.** Copy the scripts needed from `Sample Report/Code/` into `Code/`, then adapt them as in the table below. Keep the numbering and the split into one script per step. Do not copy the sample's outputs.
 4. **Then follow the eight steps,** beginning with step 1 for the new variables.
@@ -120,7 +120,7 @@ Inference is by likelihood and Bayesian evidence, following Ranganathan, Spaiser
 - **Independence is checked, not assumed.** Each country appears many times.
   - Test the lag-1 correlation of residuals within countries, and the correlation of residuals between the equations. For the latter, an iterated seemingly-unrelated-regressions re-estimate shows whether it matters.
   - Refit on 500 resamples of whole countries, with a fixed seed, to see how often the same terms are selected and how far the coefficient ranges exceed the credible intervals.
-  - These go in `Appendix.md`, and in the report only if they change how a result should be read. There are no clustered or robust standard errors on this branch.
+  - These go in `Appendix.md`, and in the report only if they change how a result should be read. There are no clustered or robust standard errors in this project.
 - **The dynamics are computed, not read off figures.**
   - Solve each nullcline from the fitted equations, exactly where possible, and check by a second route.
   - Determine stability from the sign of the derivative of the change in each variable with respect to that variable, along its nullcline.
@@ -141,7 +141,7 @@ Every report is a short article in the same format, so reports on different vari
 
   It never anticipates a result: would the sentence change if the numbers came out differently? Do not open with a sentence about the report.
 - **`Methods`** has the sub-headings `Data`, `Model`, `Model selection and uncertainty` and `Dynamics`. The method is described once. Choices get a reason. A weakness of one model goes beside that model. `Methods` describes only what `Results` reports.
-- **Explain in words what the model says; put the details in the `Appendix`.** This is the approach of this branch. The sample's report, *Did the rise of democracy predict its future?* (`Sample Report/Democracy.md`), is the reference for the level of language. The text is non-technical; the equations appear once; numbers are few and in the variables' own units; the full models, intervals, evidence, resampling counts and prediction scores are in the `Appendix` tables, and the `Results` refer to them.
+- **Explain in words what the model says; put the details in the `Appendix`.** This is the approach of this project. The sample's report, *Did the rise of democracy predict its future?* (`Sample Report/Democracy.md`), is the reference for the level of language. The text is non-technical; the equations appear once; numbers are few and in the variables' own units; the full models, intervals, evidence, resampling counts and prediction scores are in the `Appendix` tables, and the `Results` refer to them.
   - **`Results`** opens with the figures of the data and how to read them, then one section per question. Each section heading says in plain words what the section asks, for example "What does the model say?" or "Did the model predict the future?". A heading never refers to "Question 2" or any other number. A question with two parts may take one section per part. The section answering the default question gives the selected equations, then says in words what they mean, for example:
     - which way each variable moves and towards what
     - where change stops, or that it does not
@@ -317,4 +317,4 @@ A test for any sentence: could a reader disagree with it? If not, cut it.
 - **Every reference is a link,** to a DOI or URL that resolves. A `403` from a publisher is bot-blocking, not a dead link.
 - **Cite the version used:** the data release and download date, and the edition. Verify every detail from the source itself, and never cite a work that has not been opened.
 - **A quantity taken from another work keeps its units** (base year, denominator). If the units are unknown, drop the number.
-- **Paywalled papers.** Ask the user for a short list of PDFs, save them to `Attachments/literature/` (gitignored), and note in the log which were read in full.
+- **Paywalled papers.** Ask the user for a short list of PDFs, save them to `Attachments/literature/` (gitignored, unless the user co-authored the paper and decides to commit it), and note in the log which were read in full.
