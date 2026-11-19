@@ -108,6 +108,7 @@ How the entries sit on the levels in section 0. "→" marks a move between level
 | 2.56 The brief, restated | 4 → 3 | The user restates what the project is: a fixed method, flexible questions. What the analysis actually did becomes the standard. |
 | 2.57 Making it reusable | 3 | The analysis becomes the template's sample, the contract gains a way in, and the code a map for adapting it. |
 | 2.58 A confusing table | 1 | Table A4's labels described the method; they now say whether each country followed and what it did. |
+| 2.59 Export, and a home of its own | 3 | The PDF checked by reading it back; the project moves to its own public repository, and the contract follows. |
 | These notes | 5 | Watching all of the above. |
 
 ### 2.1 Creating the branch
@@ -906,6 +907,25 @@ Commits `bcaa5da` (contract) and `a882613` (content).
 - **Nothing in the analysis moved.** The rule and the counts are the same, so only wording changed. The caption's new sentence about the empty cases (no country rose where the model predicted little change or a fall, and none fell by less than half a predicted fall) was checked against the data before it went in.
 - **The user's own edit.** An uncommitted change to the abstract was found on disk. It was checked, found correct, kept, and committed with this change, and the commit message says so.
 - **For the video.** The user read the table as a reader would and found the labels described the method, not the countries. The fix kept the rule and changed only the words a reader sees.
+
+### 2.59 Export, and a home of its own
+
+> I have read it
+>
+> Make a pdf
+>
+> Fork this project to a new public repository called socioeconomic-dynamical-systems. The papers coauthored by me can be in this repository
+>
+> FRAMEWORK Update the instructions and put everything in a new folder in github and I will move directory and work from there.
+
+Commits `0a782b8` (export), `c0115d4` (papers), `6117a8a` (contract) and `c583a07` (record).
+
+- **The disclaimer gate.** The export waited until the user had read the disclaimer, quoted in full, and said so. The confirmation is in the log.
+- **The exit code lied four times.** The first build stopped itself because `⅓` was dropped. Every later build reported success. Reading the PDF back page by page found that each "95%" in a caption had cut the rest of its line, that Figure 3's caption ran onto the next page, and that Table A4's caption sat alone at the foot of a page. Two quick fixes for the last one failed. The one that held makes each table caption part of the table itself. Each failure is now handled in the export script and described in `Setup.md`.
+- **A public repository.** Before anything was made public, the user decided who owns it (Vivid-Insights) and what goes in (this branch with its full history). The agent checked the first page of every PDF in the literature folder. Only the eight the user co-authored were committed; the third-party papers and data stay out.
+- **The contract follows the move.** "This branch" became "this repository", `main` became the template, and the exception for co-authored papers was written in. A conflict the agent had flagged, a contract saying the literature is gitignored while the repository held papers, was resolved by the user's FRAMEWORK message rather than by the agent.
+- **A working copy, checked.** The new folder is a clone of the new repository, with the data, the other papers and the local files copied in. Rebuilding both panels from the copied raw data gave byte-identical files.
+- **For the video.** The agent ends where it started: a template, now with its own address, carrying a contract, a finished sample and the walkthrough of how both were made.
 
 ## 3. The specialised agent at the end of the session
 
