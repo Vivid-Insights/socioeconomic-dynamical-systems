@@ -78,4 +78,4 @@ Commit as you go. The agent stages named files rather than everything, so an unf
 
 This template — the contract, the documents, the code and the sample report — is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/). See [LICENSE](LICENSE).
 
-Third-party material is not covered: the data the sample analyses (World Bank, Quality of Government, V-Dem) and the articles it cites remain under their owners' terms. The large data files and the articles are not included in the repository.
+Third-party material is not covered: the data the sample analyses (World Bank, Quality of Government, V-Dem) and the articles it cites remain under their owners' terms. The large data files are not included in the repository, and nor are the articles, except the papers the method comes from that the author co-wrote (Ranganathan et al., 2013–2015; Spaiser et al., 2014), in `Attachments/literature/`.

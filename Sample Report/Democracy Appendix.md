@@ -96,7 +96,7 @@ Written in step 2, on 18 November 2026, before anything was fitted or plotted. N
 
 ### Discussion
 
-This analysis is a replication, and it checks the method this branch is built on. The question is taken from the introduction of Ranganathan, Spaiser and Sumpter (2013), as the user asked. That introduction makes three moves.
+This analysis is a replication, and it checks the method this project is built on. The question is taken from the introduction of Ranganathan, Spaiser and Sumpter (2013), as the user asked. That introduction makes three moves.
 
 - Social scientists usually relate variables through regression, and read the results statically: the level of one variable against the level of another.
 - Social systems are dynamic, so it is more natural to model how each variable changes as a function of the current state of all of them, and to let the data choose the form of that function from a pool of candidates instead of fixing it from theory.
