@@ -25,8 +25,12 @@ Sample Report/Attachments/literature/
 
 
 # Literature PDFs: licensed material, not redistributable. Citations live in the
-# documents; the files stay local.
-Attachments/literature/
+# documents; the files stay local. The exception is the papers co-authored by the
+# repository's author (Ranganathan et al., Spaiser et al.), which are committed at
+# the author's decision.
+Attachments/literature/*
+!Attachments/literature/Ranganathan20*.pdf
+!Attachments/literature/Spaiser2014*.pdf
 
 # QoG archive: large, third-party republication. See Attachments/SOURCE.md.
 Attachments/qog_std_ts_jan15.csv
